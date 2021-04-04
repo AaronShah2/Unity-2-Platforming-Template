@@ -22,6 +22,11 @@ public class PlayerManagerScript : MonoBehaviour
     public KeyCode useKey = KeyCode.E;
     public KeyCode swapKey = KeyCode.I;
 
+    // New variables
+    public List<Collectable> inventory = new List<Collectable>();
+    [SerializeField]
+    private int currentSelection = 0;
+    private int idCounter = 1;
     void Awake()
     {
         isPaused = false;
