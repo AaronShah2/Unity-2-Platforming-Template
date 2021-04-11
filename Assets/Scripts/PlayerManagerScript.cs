@@ -57,6 +57,14 @@ public class PlayerManagerScript : MonoBehaviour
         {
             OnPauseToggle?.Invoke();
         }
+        if(Input.GetKeyDown(useKey) && inventory.Count > 0){
+            Collectable currentItem = inventory[currentSelection];
+            InventoryRemove();
+            currentItem.Use();
+        }
+        if(Input.GetKeyDown(swapKey) && inventory.Count > 0) {
+            currentSelection = (currentSelection + 1) % inventory.Count;
+        }
     }
 
     public void SetPlayerInfo(int newHealth, int newScore)
@@ -104,8 +112,43 @@ public class PlayerManagerScript : MonoBehaviour
         OnHealthChange.RemoveAllListeners();
         OnScoreChange.RemoveAllListeners();
     }
-}
+    
+    // Adds the object to the object to your inventory and executes its function
+    // For coin, it will increase the score
+    private void InventoryAdd(Collectable item){
+        // ($"") - f-string
+        // Difference between f-string and normal strings is
+        // the f-string can have variables in it while the normal string cannot
+        // i.e idCounter = 10, String s = $"{idCounter}"
+        // What would s print out?
+                // 10 or {idCounter}
+        item.collectableName += $"{idCounter++}";
+        item.player = this.gameObject;
+        item.transform.parent = null;
+        currentSelection = inventory.Count - 1;
+        item.gameObject.SetActive(false);
+    }
 
+    private void InventoryRemove()
+    {
+        inventory.RemoveAt(currentSelection);
+        if(inventory.Count == 0){
+            currentSelection = 0;
+        }
+        else {
+            currentSelection = (currentSelection+1) % inventory.Count;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision) {
+        Collectable item = collision.GetComponent<Collectable>();
+        if(item!=null){
+            inventory.Add(item);
+            InventoryAdd(item);
+        }
+    }
+
+}
 
 [System.Serializable]
 public class UnityEvent_Int : UnityEvent<int>

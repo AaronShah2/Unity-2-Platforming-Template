@@ -131,6 +131,8 @@ GameObject:
   m_Component:
   - component: {fileID: 60661305}
   - component: {fileID: 60661304}
+  - component: {fileID: 60661307}
+  - component: {fileID: 60661306}
   m_Layer: 0
   m_Name: Grid2
   m_TagString: Untagged
@@ -165,6 +167,73 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &60661306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 60661303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7bb9acb2cffc5f45abddc238a0ad9b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PositionIntKeys: []
+  m_PositionIntValues: 
+  m_PositionStringKeys: []
+  m_PositionStringValues: []
+  m_PositionFloatKeys: []
+  m_PositionFloatValues: []
+  m_PositionDoubleKeys: []
+  m_PositionDoubleValues: []
+  m_PositionObjectKeys: []
+  m_PositionObjectValues: []
+  m_PositionColorKeys:
+  - position: {x: -4, y: -1, z: 0}
+    name: Tint
+  - position: {x: -3, y: -1, z: 0}
+    name: Tint
+  - position: {x: -2, y: -1, z: 0}
+    name: Tint
+  - position: {x: -1, y: -1, z: 0}
+    name: Tint
+  - position: {x: 0, y: -1, z: 0}
+    name: Tint
+  - position: {x: 1, y: -1, z: 0}
+    name: Tint
+  - position: {x: -3, y: 0, z: 0}
+    name: Tint
+  - position: {x: -2, y: -2, z: 0}
+    name: Tint
+  - position: {x: -3, y: -2, z: 0}
+    name: Tint
+  - position: {x: -4, y: -2, z: 0}
+    name: Tint
+  m_PositionColorValues:
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &60661307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 60661303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b41bf0cc11b1c8f419f96e8eb0adea40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  k_TintMapSize: 256
 --- !u!1001 &674534039
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -247,7 +316,7 @@ GameObject:
   - component: {fileID: 771738790}
   - component: {fileID: 771738789}
   m_Layer: 0
-  m_Name: Tilemap
+  m_Name: SafeGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2358,6 +2427,7 @@ GameObject:
   - component: {fileID: 912448111}
   - component: {fileID: 912448110}
   - component: {fileID: 912448112}
+  - component: {fileID: 912448113}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
@@ -2405,6 +2475,111 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hurtAmount: 10
+--- !u!114 &912448113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912448109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7bb9acb2cffc5f45abddc238a0ad9b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PositionIntKeys: []
+  m_PositionIntValues: 
+  m_PositionStringKeys: []
+  m_PositionStringValues: []
+  m_PositionFloatKeys: []
+  m_PositionFloatValues: []
+  m_PositionDoubleKeys: []
+  m_PositionDoubleValues: []
+  m_PositionObjectKeys: []
+  m_PositionObjectValues: []
+  m_PositionColorKeys:
+  - position: {x: 6, y: -1, z: 0}
+    name: Tint
+  - position: {x: 5, y: -1, z: 0}
+    name: Tint
+  - position: {x: 5, y: -2, z: 0}
+    name: Tint
+  - position: {x: 4, y: -2, z: 0}
+    name: Tint
+  - position: {x: 6, y: -2, z: 0}
+    name: Tint
+  - position: {x: 7, y: -2, z: 0}
+    name: Tint
+  - position: {x: 8, y: -2, z: 0}
+    name: Tint
+  - position: {x: 8, y: -1, z: 0}
+    name: Tint
+  - position: {x: 7, y: -1, z: 0}
+    name: Tint
+  - position: {x: -5, y: 1, z: 0}
+    name: Tint
+  - position: {x: -5, y: 0, z: 0}
+    name: Tint
+  - position: {x: -5, y: -1, z: 0}
+    name: Tint
+  - position: {x: -4, y: -1, z: 0}
+    name: Tint
+  - position: {x: -3, y: -1, z: 0}
+    name: Tint
+  - position: {x: -2, y: -1, z: 0}
+    name: Tint
+  - position: {x: -1, y: -1, z: 0}
+    name: Tint
+  - position: {x: 0, y: -1, z: 0}
+    name: Tint
+  - position: {x: -4, y: 1, z: 0}
+    name: Tint
+  - position: {x: -3, y: 1, z: 0}
+    name: Tint
+  - position: {x: -3, y: 0, z: 0}
+    name: Tint
+  - position: {x: -4, y: 0, z: 0}
+    name: Tint
+  - position: {x: -6, y: 0, z: 0}
+    name: Tint
+  - position: {x: -6, y: -1, z: 0}
+    name: Tint
+  - position: {x: -7, y: -1, z: 0}
+    name: Tint
+  - position: {x: -2, y: 1, z: 0}
+    name: Tint
+  - position: {x: -1, y: 1, z: 0}
+    name: Tint
+  - position: {x: 0, y: 1, z: 0}
+    name: Tint
+  m_PositionColorValues:
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &1476831127
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2681,7 +2856,7 @@ GameObject:
   - component: {fileID: 1796516440}
   - component: {fileID: 1796516441}
   m_Layer: 0
-  m_Name: Tilemap
+  m_Name: Spikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
