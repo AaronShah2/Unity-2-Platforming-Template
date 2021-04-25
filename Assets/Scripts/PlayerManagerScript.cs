@@ -24,6 +24,10 @@ public class PlayerManagerScript : MonoBehaviour
 
     // New variables
     public List<Collectable> inventory = new List<Collectable>();
+    public UnityEvent_Collectable OnInventoryAdd;
+    public UnityEvent_Collectable OnInventoryChange;
+    public UnityEvent_Collectable OnInventoryRemove;
+
     [SerializeField]
     private int currentSelection = 0;
     private int idCounter = 1;
@@ -38,6 +42,9 @@ public class PlayerManagerScript : MonoBehaviour
     {
         OnHealthChange?.Invoke(health);
         OnScoreChange?.Invoke(score);
+        if(inventory.Count > 0){
+            OnInventoryChange?.Invoke(inventory[currentSelection]);
+        }
     }
 
     private void OnEnable()
@@ -63,6 +70,7 @@ public class PlayerManagerScript : MonoBehaviour
             currentItem.Use();
         }
         if(Input.GetKeyDown(swapKey) && inventory.Count > 0) {
+            OnInventoryChange?.Invoke(inventory[currentSelection]);
             currentSelection = (currentSelection + 1) % inventory.Count;
         }
     }
@@ -122,6 +130,7 @@ public class PlayerManagerScript : MonoBehaviour
         // i.e idCounter = 10, String s = $"{idCounter}"
         // What would s print out?
                 // 10 or {idCounter}
+        OnInventoryAdd?.Invoke(item);
         item.collectableName += $"{idCounter++}";
         item.player = this.gameObject;
         item.transform.parent = null;
@@ -131,26 +140,33 @@ public class PlayerManagerScript : MonoBehaviour
 
     private void InventoryRemove()
     {
+        OnInventoryRemove?.Invoke(inventory[currentSelection]); // 4
         inventory.RemoveAt(currentSelection);
         if(inventory.Count == 0){
             currentSelection = 0;
+            OnInventoryChange?.Invoke(null); // 5
         }
         else {
             currentSelection = (currentSelection+1) % inventory.Count;
+            OnInventoryChange?.Invoke(inventory[currentSelection]); // 6
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
         Collectable item = collision.GetComponent<Collectable>();
         if(item!=null){
+            Debug.Log(item);
             inventory.Add(item);
             InventoryAdd(item);
         }
     }
-
 }
 
 [System.Serializable]
 public class UnityEvent_Int : UnityEvent<int>
 {
 }
+
+[System.Serializable]
+public class UnityEvent_Collectable: UnityEvent<Collectable>
+{}

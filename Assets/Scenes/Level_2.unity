@@ -2917,6 +2917,12 @@ MonoBehaviour:
   - {r: 1, g: 1, b: 1, a: 1}
   - {r: 1, g: 1, b: 1, a: 1}
   - {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &1160367769 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5814465217306765024, guid: cecb782ae83f845f2b7d0e6101eb6cbb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1552419568}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1308600420
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4051,6 +4057,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4604462841381220414, guid: 88a1860161bc45d47802b431ef519584,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1160367769}
+    - target: {fileID: 4604462841381220414, guid: 88a1860161bc45d47802b431ef519584,
+        type: 3}
+      propertyPath: collectableName
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4604462841381220417, guid: 88a1860161bc45d47802b431ef519584,
         type: 3}
