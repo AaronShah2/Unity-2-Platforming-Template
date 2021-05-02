@@ -136,6 +136,9 @@ public class PlayerManagerScript : MonoBehaviour
         item.transform.parent = null;
         currentSelection = inventory.Count - 1;
         item.gameObject.SetActive(false);
+
+        // Save progress
+        DontDestroyOnLoad(item.gameObject);
     }
 
     private void InventoryRemove()
@@ -155,7 +158,6 @@ public class PlayerManagerScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision) {
         Collectable item = collision.GetComponent<Collectable>();
         if(item!=null){
-            Debug.Log(item);
             inventory.Add(item);
             InventoryAdd(item);
         }
