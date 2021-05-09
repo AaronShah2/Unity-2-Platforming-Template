@@ -9,6 +9,10 @@ public class PlayerInfo : MonoBehaviour
     private int health = 100;
     [SerializeField]
     private int score = 0;
+    
+    // New Code
+    [SerializeField]
+    private List<Collectable> inventory = new List<Collectable>();
 
     // Start is called before the first frame update
     void Start()
@@ -36,8 +40,18 @@ public class PlayerInfo : MonoBehaviour
             player.health = health;
             player.score = score;
 
+            // Save the data for the items
+            foreach(Collectable item in inventory) 
+            {
+                player.inventory.Add(item);
+            }
+
             player.OnHealthChange.AddListener(HealthChange);
             player.OnScoreChange.AddListener(ScoreChange);
+            
+            // when you remove or add item from inventory, it will do the same
+            player.OnInventoryAdd.AddListener(InventoryAdd);
+            player.OnInventoryRemove.AddListener(InventoryRemove);
         }
     }
 
@@ -49,5 +63,21 @@ public class PlayerInfo : MonoBehaviour
     void ScoreChange(int newScore)
     {
         score = newScore;
+    }
+    void InventoryAdd(Collectable item)
+    {
+        inventory.Add(item);
+    }
+
+    void InventoryRemove(Collectable item)
+    {
+        if (item == null)
+        {
+            inventory.Clear();
+        }
+        else
+        {
+            inventory.Remove(item);
+        }
     }
 }
